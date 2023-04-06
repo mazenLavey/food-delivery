@@ -1,0 +1,29 @@
+
+.section {
+    margin-bottom: var(--section-margin);
+}
+
+.wrappe {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+    .wrappe {
+        flex-flow: row nowrap;
+    }
+}
+
+.address > h2 {
+    font-size: var(--font-700);
+}
+
+.address > p {
+    line-height: 2;
+    font-size: var(--font-400);
+}
+

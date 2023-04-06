@@ -1,0 +1,44 @@
+
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 2px var(--shadow-color);
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    gap: 20px;
+    height: 100px;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.header > h3 {
+    font-size: var(--font-400);
+}
+
+.header img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 0px 6px 0;
+}
+
+.price {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+.price > p {
+    font-size: var(--font-300);
+    color: gray;
+    text-transform: capitalize;
+}

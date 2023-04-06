@@ -1,0 +1,49 @@
+/* start restaurants */
+.section {
+    margin-bottom: var(--section-margin);
+}
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    border-radius: 4px;
+    box-shadow: 0px 2px 16px var(--shadow-color);
+    outline: 3px solid transparent;
+    background-color: white;
+    transition: 0.3s;
+}
+
+.card__mobile {
+    filter: drop-shadow(2px 4px 6px #00000026);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.card:hover {
+    outline-color: var(--yellow-main);
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 30px;   
+}
+
+.list__mobile {
+    margin-top: 20px;
+    width: 95%;
+    padding: 20px 10px;
+
+}
+
+.list__mobile img {
+    width: 100%;
+}
+
+@media (max-width: 575px) {
+    .section {
+        overflow: hidden;
+    }
+}
+/* end restaurants */

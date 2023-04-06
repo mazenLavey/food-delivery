@@ -1,0 +1,25 @@
+.icon {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.icon:hover {
+    background-color: var(--gray-light);
+}
+
+.icon > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    background-color: var(--yellow-main);
+    border-radius: 50%;
+    font-size: 0.6rem;
+}

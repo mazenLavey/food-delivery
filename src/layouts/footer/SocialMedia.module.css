@@ -1,0 +1,18 @@
+.socialMedia {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 20px;
+}
+
+.socialMedia a {
+    cursor: pointer;
+    user-select: none;
+}
+
+.socialMedia a:hover {
+    opacity: 0.5;
+}
+
+.socialMedia img {
+    width: 24px;
+}

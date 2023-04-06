@@ -1,0 +1,38 @@
+/* start instagram */
+.section h2 > span {
+    color: gray;
+}
+
+.section > header {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.photos {
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.photos__mobile {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 90%;
+}
+
+.photos > img {
+    border-radius: 6px;
+    width: 100%;
+}
+
+@media (max-width: 575px) {
+    .section {
+        overflow: hidden;
+    }
+}
+/* end instagram */

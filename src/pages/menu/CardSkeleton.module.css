@@ -1,0 +1,17 @@
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 2px var(--shadow-color);
+    overflow: hidden;
+}
+
+.img {
+    height: 230px;
+}
+
+.body {
+    padding: 10px;
+}

@@ -1,0 +1,32 @@
+.title {
+    font-size: var(--font-700);
+}
+
+.section {
+    margin-top: 24px;
+    margin-bottom: var(--section-margin);
+}
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.wrapper h2 {
+    font-size: var(--font-600);
+}
+
+.card {
+    border: 1px solid var(--gray-dark);
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background-color: var(--yellow-main);
+    border-color: var(--yellow-main);
+}

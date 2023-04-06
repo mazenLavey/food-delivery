@@ -1,0 +1,96 @@
+
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 2px var(--shadow-color);
+    overflow: hidden;
+}
+
+.img {
+    position: relative;
+}
+
+.badge__sale {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 70px;
+    height: 25px;
+    padding: 2px;
+    text-align: center;
+    border-radius: 7px;
+    background-color: #86a409;
+    color: white;
+    font-weight: 300;
+    font-size: var(--font-300);
+}
+
+.nutrition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    font-size: var(--font-200);
+    font-weight: bold;
+    width: 50%;
+    padding: 5px 20px 5px 10px;
+    border-radius: 0 30px 0 0;
+    background-color: #fff;
+    transition: 0.5s;
+}
+
+@media (min-width: 992px) {
+    .nutrition {
+        transform: translateX(-100%);
+    }
+
+    .card:hover .nutrition {
+        transform: translateX(0);
+    }
+}
+
+.img > img {
+    width: 100%;
+}
+
+.info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.text {
+    padding: 10px;
+}
+
+.text > h3 {
+    text-transform: uppercase;
+    font-size: var(--font-600);
+}
+
+.text > p {
+    margin: 10px 0;
+    font-size: var(--font-300);
+}
+
+.price {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+}
+
+.price > p {
+    font-weight: bold;
+    font-size: var(--font-400);
+    text-transform: capitalize;
+}

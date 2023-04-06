@@ -1,0 +1,44 @@
+
+
+.primaryBtnYellow,
+.primaryBtnGray {
+    border: none;
+    width: 120px;
+    height: 45px;
+    padding: 0 5px;
+    border-radius: 4px;
+    font-size: var(--font-300);
+    font-family: var(--font-family);
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.primaryBtnGray {
+    background-color: var(--gray-light);
+    color: var(--font-btn-gray);
+}
+
+.primaryBtnGray:hover {
+    background-color: var(--gray-dark);
+}
+
+.primaryBtnYellow {
+    background-color: var(--yellow-main);
+    color: var(--font-main);
+}
+
+.primaryBtnYellow:hover {
+    background-color: var(--yellow-light);
+    color: var(--font-btn-yellow);
+}
+
+@media (max-width: 575px) {
+    .primaryBtnYellow,
+    .primaryBtnGray {
+        width: 85px;
+        height: 40px;
+        padding: 0 10px;
+    }
+}

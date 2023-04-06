@@ -1,0 +1,40 @@
+.categories {
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.categories::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    background-image: linear-gradient(to left, #fff, transparent);
+    z-index: 1;
+}
+
+.slider {
+    width: 90%;
+}
+
+.slider span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    padding: 0 20px;
+    background-color: var(--gray-light);
+    color: var(--font-main);
+    font-size: var(--font-400);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: capitalize;
+    user-select: none;
+}
+
+.slider span:hover {
+    background-color: var(--yellow-main);
+}

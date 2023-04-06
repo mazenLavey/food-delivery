@@ -1,0 +1,80 @@
+.section {
+    background-color: var(--gray-light);
+    margin-bottom: var(--section-margin);
+    padding: 40px 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+@media (min-width: 992px) {
+    .wrapper {
+        justify-content: space-between;
+    }
+}
+
+.wrapper > div > h2 {
+    font-weight: 300;
+    font-size: var(--font-700);
+    margin-bottom: 15px;
+}
+
+.wrapper > div > p {
+    font-weight: 300;
+    font-size: var(--font-300);
+    line-height: 24px;
+}
+
+.form {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 60px;
+    
+    gap: 10px;
+}
+
+.search__bar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 5px;
+    height: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px 0 0 6px;
+    box-shadow: 0px 8px 40px var(--shadow-color);
+}
+
+.search__bar > input {
+    font-size: var(--font-400);
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
+.btn {
+    height: 100%;
+    padding: 0 20px;
+    background-color: var(--yellow-main);
+    color: var(--font-main);
+    border-radius: 0 6px 6px 0;
+    font-weight: bold;
+    font-size: var(--font-300);
+    font-family: var(--font-family);
+    border: none;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 8px 40px var(--shadow-color);
+}
+
+.btn:hover {
+    background-color: var(--yellow-light);
+    color: var(--font-btn-yellow);
+}

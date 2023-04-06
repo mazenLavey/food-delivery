@@ -1,0 +1,25 @@
+
+.breadcrumbs {
+    margin: 10px 0;
+}
+
+.breadcrumbs li {
+    display: inline;
+    font-size: var(--font-400);
+}
+
+.breadcrumbs li a {
+    transition: 0.3s;
+    border-bottom: 3px solid transparent;
+    color: #a7a7a7;
+}
+
+.breadcrumbs li+li:before {
+    padding: 8px;
+    content: "\003e";
+}
+
+.breadcrumbs li a:hover {
+    border-color: var(--yellow-main);
+    color: var(--font-main);
+}

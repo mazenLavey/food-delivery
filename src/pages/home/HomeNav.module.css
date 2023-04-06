@@ -1,0 +1,28 @@
+
+
+.subNav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--shadow-color);
+    background-color: white;
+}
+
+.list {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.list > li {
+    transition: 0.3s;
+}
+
+.list > li a {
+    font-size: var(--font-400);
+}
+
+.list > li:hover {
+    opacity: 0.5;
+}

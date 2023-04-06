@@ -1,0 +1,31 @@
+.title {
+    font-size: var(--font-700);
+}
+
+.wrapper {
+    margin-top: 20px;
+    margin-bottom: var(--section-margin);
+    border: 1px solid var(--gray-dark);
+    border-radius: 8px;
+}
+
+.wrapper > article > h2 {
+    font-size: var(--font-600);
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--gray-dark);
+    margin: 0;
+    cursor: pointer;
+}
+
+.wrapper > article:last-of-type > h2 {
+    border-bottom: none;
+}
+
+.wrapper > article > h2:hover {
+    background-color: var(--yellow-main);
+}
+
+.wrapper > article > p  {
+    padding: 10px 20px;
+    font-size: var(--font-400);
+}
