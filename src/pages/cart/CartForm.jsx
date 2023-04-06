@@ -3,6 +3,7 @@ import CartFormCSS from './CartForm.module.css';
 import deliveryIcon from '../../assets/time-eat-icon.svg'
 import priceFormatter from '../../functions/priceFormatter';
 import useFetch from '../../hooks/useFetch';
+import payWithCard from '../../assets/pay-with-card-icons.png';
 
 const CartForm = (props)=>{
     const [orderForm, setOrderForm] = useState({
@@ -41,23 +42,42 @@ const CartForm = (props)=>{
     function handelSubmit(e) {
         e.preventDefault();
         // send data to server
-        if (orderForm.clientName && orderForm.phoneNumber && orderForm.address && orderForm.paymentMethod ) {
-            console.log(orderForm);
-            props.orderStatus();
-            setOrderForm({
-                deliveryMethod: 'delivery',
-                clientName: '',
-                phoneNumber: '',
-                personNum: '',
-                address: '',
-                restaurant: '',
-                AddInfo: '',
-                paymentMethod:''
-            });
-            setInvalid(false);
+        if(orderForm.deliveryMethod === 'delivery') {
+            if (orderForm.clientName && orderForm.phoneNumber && orderForm.address && orderForm.paymentMethod ) {
+                props.orderStatus();
+                setOrderForm({
+                    deliveryMethod: 'delivery',
+                    clientName: '',
+                    phoneNumber: '',
+                    personNum: '',
+                    address: '',
+                    restaurant: '',
+                    AddInfo: '',
+                    paymentMethod:''
+                });
+                setInvalid(false);
+            } else {
+                setInvalid(true);
+                return
+            }
         } else {
-            setInvalid(true);
-            return
+            if (orderForm.clientName && orderForm.phoneNumber && orderForm.restaurant && orderForm.paymentMethod ) {
+                props.orderStatus();
+                setOrderForm({
+                    deliveryMethod: 'delivery',
+                    clientName: '',
+                    phoneNumber: '',
+                    personNum: '',
+                    address: '',
+                    restaurant: '',
+                    AddInfo: '',
+                    paymentMethod:''
+                });
+                setInvalid(false);
+            } else {
+                setInvalid(true);
+                return
+            }
         }
     }
 
@@ -84,10 +104,10 @@ const CartForm = (props)=>{
             <div className={CartFormCSS.order__info}>
                 <h3>delivery information</h3>
                 <label htmlFor="clientName">Name<sup style={{color: 'red'}}>*</sup></label>
-                <input type="text" name='clientName' id='clientName' placeholder='ex: John Doe' value={orderForm.clientName} onChange={handelForm} minLength={3} maxLength={50} />
+                <input type="text" name='clientName' id='clientName' placeholder='e.g. John Doe' value={orderForm.clientName} onChange={handelForm} minLength={3} maxLength={50} />
 
                 <label htmlFor="phoneNumber">Phone Number<sup style={{color: 'red'}}>*</sup></label>
-                <input type="number" name='phoneNumber' inputMode="decimal" id='phoneNumber' placeholder='+1 (xxx) xxx-xxxx' value={orderForm.phoneNumber}  onChange={handelForm} />
+                <input type="number" name='phoneNumber' inputMode="decimal" id='phoneNumber' placeholder='e.g. +1 (xxx) xxx-xxxx' value={orderForm.phoneNumber}  onChange={handelForm} />
 
                 <label htmlFor="personNum">How many person</label>
                 <input type="number" name='personNum' id='personNum' value={orderForm.personNum} onChange={handelForm} style={{width: '20%'}}/>
@@ -120,7 +140,7 @@ const CartForm = (props)=>{
                 </div>
                 <div className={CartFormCSS.form__radio}>
                     <input type="radio" id='card' name='paymentMethod' value='card' checked={orderForm.paymentMethod === 'card'} onChange={handelForm} required/>
-                    <label htmlFor="card">by Card</label>
+                    <label htmlFor="card"><img src={payWithCard} alt="pay with card" height={20}/></label>
                 </div>
             </div>
             {invalid? <p style={{color: 'red'}}>* Fill all required fields</p>: null}

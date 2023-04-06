@@ -1,10 +1,10 @@
 import useFetch from '../../hooks/useFetch';
 import AboutCSS from './About.module.css';
 import RestaurantCard from '../../components/RestaurantCard';
-import bg01 from '../../assets/about-bg01.jpg';
-import bg02 from '../../assets/about-bg02.jpg';
-import bg03 from '../../assets/about-bg03.jpg';
-import bg04 from '../../assets/about-bg04.jpg';
+import bg01 from '../../assets/about-bg01.webp';
+import bg02 from '../../assets/about-bg02.webp';
+import bg03 from '../../assets/about-bg03.webp';
+import bg04 from '../../assets/about-bg04.webp';
 
 
 const About = ()=>{
