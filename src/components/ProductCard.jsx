@@ -35,6 +35,7 @@ const ProductCard = ({data, showParagraph= true, SkeletonImgHeight='230px'}) =>{
                                 null
                                 :
                                 <Skeleton style={{
+                                    display: 'inline-block',
                                     width: "100%",
                                     height: "100%",
                                     position: "absolute",

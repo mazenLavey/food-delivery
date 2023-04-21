@@ -13,6 +13,10 @@
     position: relative;
 }
 
+.img br {
+    display: none !important;
+}
+
 .badge__sale {
     position: absolute;
     top: 5px;
