@@ -56,7 +56,7 @@
     border: 2px solid var(--yellow-main);
     color: var(--font-main);
     font-family: var(--font-family);
-    background-color: transparent;
+    background-color: #fff;
     border-radius: 4px;
     cursor: pointer;
     user-select: none;

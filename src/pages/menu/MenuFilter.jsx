@@ -35,23 +35,23 @@ const MenuFilter= ()=>{
                 {
                     dataIsLoaded?
                     <Swiper 
-                        slidesPerView={2} 
+                        slidesPerView={2.5} 
                         spaceBetween={10}
                         breakpoints={{
                             360: {
-                                slidesPerView: 3
+                                slidesPerView: 3.5
                             },
                             576: {
-                                slidesPerView: 4
+                                slidesPerView: 4.5
                             },
                             768: {
-                                slidesPerView: 5
+                                slidesPerView: 5.5
                             },
                             992: {
-                                slidesPerView: 6
+                                slidesPerView: 6.5
                             },
                             1400: {
-                                slidesPerView: 10
+                                slidesPerView: 10.5
                             }
                         }}
                     >

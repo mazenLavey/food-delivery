@@ -45,7 +45,7 @@ function Restaurants() {
                     {dataIsLoaded? 
                     (isMobile?
                         <div className={RestaurantsCSS.list__mobile}>
-                            <Swiper slidesPerView={1} spaceBetween={20} >
+                            <Swiper slidesPerView={1.2} spaceBetween={20} >
                                 {renderList()}
                             </Swiper>
                         </div>

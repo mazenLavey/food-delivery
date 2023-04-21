@@ -31,14 +31,14 @@ function Specialities() {
                     isMobile?
                         <div className={SpecialitiesCSS.list__mobile}>
                         <Swiper 
-                        slidesPerView={2} 
+                        slidesPerView={1.6} 
                         spaceBetween={30}
                         breakpoints={{
                             360: {
-                                slidesPerView: 3
+                                slidesPerView: 3.2
                             },
                             520: {
-                                slidesPerView: 4
+                                slidesPerView: 4.4
                             }
                         }}
                         >

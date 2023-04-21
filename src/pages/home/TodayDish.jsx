@@ -3,14 +3,16 @@ import {MenuDataContext}  from '../../context/MenuDataContext';
 import TodayDishCSS from './TodayDish.module.css';
 import ProductCard from '../../components/ProductCard';
 import LoadingSpan from '../../components/LoadingSpan';
+import useMedia from "../../hooks/useMedia";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from "swiper";
+import { Navigation } from "swiper";
 import 'swiper/css';
-import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 
 const TodayDish = ()=>{
     const {cartItems, dataIsLoaded} = useContext(MenuDataContext);
+    const {isMobile} = useMedia();
 
     const elements = cartItems.map(el => el.discount? <SwiperSlide key={el.id}><ProductCard data={el} showParagraph={false} SkeletonImgHeight={'210px'}/></SwiperSlide>  : null)
     return (
@@ -24,17 +26,15 @@ const TodayDish = ()=>{
                     <div className={TodayDishCSS.wrapper}>
                         <Swiper 
                             spaceBetween={20}
-                            slidesPerView={1}
-                            pagination={{
-                                clickable: true,
-                            }}
-                            modules={[Pagination]}
+                            slidesPerView={1.4}
+                            navigation={isMobile ? false : true}
+                            modules={[Navigation]}
                             breakpoints={{
                                 576: {
-                                    slidesPerView: 2
+                                    slidesPerView: 2.4
                                 },
                                 992: {
-                                    slidesPerView: 3
+                                    slidesPerView: 3.4
                                 }
                             }}
                         >

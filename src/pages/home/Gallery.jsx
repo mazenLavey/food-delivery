@@ -37,7 +37,7 @@ function Gallery() {
                 <div className={GalleryCSS.photos__mobile} ref={ref}>
                     {
                         inView?
-                        <Swiper slidesPerView={1} spaceBetween={20}>
+                        <Swiper slidesPerView={1.4} spaceBetween={20}>
                             <SwiperSlide>
                                 <img src={insta03} alt="YellowKitchens" style={{width: '100%'}} />
                             </SwiperSlide>
