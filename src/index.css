@@ -185,10 +185,6 @@ input[type=number] {
     overflow: visible;
 }
 
-.swiper-horizontal > .swiper-pagination-bullets {
-    bottom: -30px;
-}
-
 .swiper-button-next,
 .swiper-button-prev {
     background-color: var(--yellow-main);

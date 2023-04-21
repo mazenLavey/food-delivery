@@ -16,7 +16,9 @@ const ProductCard = ({data, showParagraph= true, SkeletonImgHeight='230px'}) =>{
 
     function handelLoading(e) {
         if(e.target.complete) {
-            setIsComplete(true);
+            setTimeout(()=>{
+                setIsComplete(true);
+            }, 500)
         };
     };
 
@@ -32,12 +34,20 @@ const ProductCard = ({data, showParagraph= true, SkeletonImgHeight='230px'}) =>{
                                 isComplete?
                                 null
                                 :
-                                <Skeleton height={SkeletonImgHeight} width={'100%'} style={{display: 'flex'}}/>
+                                <Skeleton style={{
+                                    width: "100%",
+                                    height: "100%",
+                                    position: "absolute",
+                                    top: 0,
+                                    left: 0,
+                                    borderRadius: 0
+                                }}/>
                             }
-                            <img  src={data.image.src} alt={data.image.alt} onLoad={handelLoading} style={isComplete? {}: {display: 'none'}}/>
+                            <img  src={data.image.src} alt={data.image.alt} onLoad={handelLoading} />
                         </>
                         :
-                        <Skeleton height={SkeletonImgHeight} width={'100%'} style={{display: 'flex'}}/>
+                        null
+                        // <Skeleton height={SkeletonImgHeight} width={'100%'} style={{display: 'flex'}}/>
                     }
                     <div className={ProductCardCSS.nutrition}>
                         <p>{data.weight}g</p>

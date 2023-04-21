@@ -1,11 +1,25 @@
 .wrapper {
-    margin-bottom: var(--section-margin);
+    min-height: 350px;
     margin-top: 20px;
-    overflow: hidden;
     padding: 0 10px 30px 10px;
     position: relative;
+    overflow: hidden;
 }
 
 .wrapper  h3 {
     font-size: var(--font-300) !important;
+}
+
+.loading__div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+}
+
+@media (min-width: 576px) {
+    .loading__div,
+    .wrapper {
+        min-height: 400px;
+    }
 }

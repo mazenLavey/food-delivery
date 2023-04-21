@@ -42,7 +42,9 @@ const TodayDish = ()=>{
                         </Swiper>
                     </div>
                     :
-                    <LoadingSpan />
+                    <div className={TodayDishCSS.loading__div}>
+                        <LoadingSpan />
+                    </div>
                 }
             </section>
         </>
