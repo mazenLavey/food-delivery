@@ -1,4 +1,3 @@
-
 .section {
     margin-bottom: var(--section-margin);
 }
@@ -17,7 +16,7 @@
     border-radius: 200px 0 200px 0;
 }
 
-.banner > h1 {
+.banner>h1 {
     position: absolute;
     color: white;
     top: 50%;
@@ -27,10 +26,10 @@
     z-index: 1;
 }
 
-.banner > h1::before {
+.banner>h1::before {
     content: '';
     position: absolute;
-    left: -20px ;
+    left: -20px;
     height: 100%;
     width: 10px;
     background-color: white;
@@ -47,7 +46,7 @@
     width: calc(100vw * 4);
     height: 100%;
     filter: contrast(0.7) brightness(0.5);
-    animation: bgSlider 12s infinite alternate   ;
+    animation: bgSlider 12s infinite alternate;
     z-index: -1;
 }
 
@@ -55,30 +54,37 @@
     0% {
         translate: calc(0% /4);
     }
+
     15% {
         translate: calc(0% /4);
     }
+
     25% {
         translate: calc(-100% /4);
     }
+
     45% {
         translate: calc(-100% /4);
     }
+
     55% {
         translate: calc(-200% /4);
     }
+
     75% {
         translate: calc(-200% /4);
     }
+
     85% {
         translate: calc(-300% /4);
     }
+
     100% {
         translate: calc(-300% /4);
     }
 }
 
-.banner__bg > img {
+.banner__bg>img {
     width: calc(100% / 4);
     object-fit: cover;
 }
@@ -87,7 +93,7 @@
     margin-bottom: var(--section-margin);
 }
 
-.concept > p {
+.concept>p {
     line-height: 1.6;
     margin-top: 10px;
     font-size: var(--font-400);
@@ -105,15 +111,15 @@
 
 .card__text {
     padding: 20px;
-    
+
 }
 
-.card__text > h3 {
+.card__text>h3 {
     text-transform: uppercase;
     font-size: var(--font-600);
 }
 
-.card__text > p {
+.card__text>p {
     line-height: 1.6;
     font-size: var(--font-300);
     margin-top: 10px;
@@ -136,7 +142,6 @@
     }
 
     .card__img {
-        width: unset;
         box-shadow: 0 0 20px 1px var(--shadow-color);
     }
 }

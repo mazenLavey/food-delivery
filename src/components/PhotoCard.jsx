@@ -20,7 +20,7 @@ const PhotoCard = ({ src }) => {
     return (
         <div className={PhotoCardCSS.imgContainer} ref={ref} style={{ position: "relative" }}>
             {isComplete ? null : <Skeleton width={"100%"} height={"100%"} style={{ position: "absolute" }} />}
-            {inView && <img src={src} alt="instagram gallery" onLoad={handleLoading} style={isComplete ? { visibility: "visible" } : { visibility: "hidden" }} className={isComplete && "fadeIn-animation"} />}
+            {inView && <img src={src} alt="instagram gallery" onLoad={handleLoading} style={isComplete ? { visibility: "visible" } : { visibility: "hidden" }} className={isComplete ? "fadeIn-animation" : ""} />}
         </div>
     )
 }

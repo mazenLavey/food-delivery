@@ -1,0 +1,7 @@
+.wrapper {
+    aspect-ratio: 1 /1;
+}
+
+.wrapper>img {
+    width: 100%;
+}
