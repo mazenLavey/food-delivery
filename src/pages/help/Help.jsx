@@ -1,8 +1,8 @@
 import React from 'react';
 import HelpCSS from './Help.module.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Help = ()=>{
+const Help = () => {
     return (
         <>
             <section className={`${HelpCSS.section} container`}>

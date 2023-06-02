@@ -9,7 +9,7 @@ export const cartFormSchema = yup.object({
     phoneNumber: yup.string().matches(regexNumber, "use 10 digits").required(requiredText),
     personNum: yup.string().max(2, "max 2 digits"),
     address: yup.string().max(100, "max 100 letters"),
-    restaurant: yup.string().required(requiredText),
+    restaurant: yup.string(),
     AddInfo: yup.string().max(100, "max 100 letters"),
     paymentMethod: yup.string().required(requiredText)
 })

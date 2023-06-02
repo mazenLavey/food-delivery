@@ -1,14 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PrimaryBtnCSS from './PrimaryBtn.module.css';
 
-const PrimaryBtn = (props)=>{
+const PrimaryBtn = ({ link, target, rel, type, text }) => {
     return (
-        <>
-        <Link to={props.link} target={props.target? props.target: null} rel={props.rel? props.rel: null}>
-            <button className={props.type === 'gray'? PrimaryBtnCSS.primaryBtnGray : PrimaryBtnCSS.primaryBtnYellow}>{props.text}</button>
+        <Link to={link} target={target ? target : null} rel={rel ? rel : null}>
+            <button className={type === 'gray' ? PrimaryBtnCSS.primaryBtnGray : PrimaryBtnCSS.primaryBtnYellow}>{text}</button>
         </Link>
-        </>
     );
 };
 

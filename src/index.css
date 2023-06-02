@@ -175,6 +175,28 @@ input[type=number] {
 
 /* end global */
 
+/* start global components */
+.btnPrimary {
+    padding: 0 10px;
+    height: 45px;
+    border-radius: 4px;
+    text-transform: capitalize;
+    border: none;
+    text-align: center;
+    background-color: var(--yellow-main);
+    color: var(--font-main);
+    font-size: var(--font-300);
+    user-select: none;
+    cursor: pointer;
+}
+
+.btnPrimary:hover {
+    background-color: #F2F4FA;
+    color: #9093A6;
+}
+
+/* end global components */
+
 /* start swiper settings */
 .swiper {
     overflow: visible;
