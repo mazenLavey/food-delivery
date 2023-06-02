@@ -1,70 +1,81 @@
-import React, {useState} from "react";
 import ContactFormCSS from './ContactForm.module.css';
+import { useFormik } from "formik";
+import { contactFormSchema } from "../schema/FormSchema";
 
-const ContactForm = () =>{
-    const [userInput, setUserInput ] = useState({
-        userName: '',
-        userEmail: '',
-        userPhone: '',
-        userComment: ''
-    });
-    const [sent, setSent] = useState(false);
-    const [invalid, setInvalid] = useState(false);
+const onSubmit = () => {
+    console.log("submitted")
+}
 
-    function handelForm(e) {
-        const {name, value} = e.target;
-        setUserInput(oldValue => {
-            return (
-                {
-                    ...oldValue,
-                    [name]: value
-                }
-            )
-        })
-    };
-
-    function handelSubmit(e) {
-        e.preventDefault();
-        // send data to server
-        if (userInput.userComment && userInput.userEmail && userInput.userName) {
-            setSent(true);
-            // empty input
-            setInvalid(false);
-            setUserInput({
-                userName: '',
-                userEmail: '',
-                userPhone: '',
-                userComment: ''
-            });
-        } else {
-            setInvalid(true);
-            return
-        }
-    };
+const ContactForm = () => {
+    const { values, errors, touched, isValid, handleChange, handleBlur, handleSubmit } = useFormik({
+        initialValues: {
+            userName: '',
+            userEmail: '',
+            userPhone: '',
+            userComment: ''
+        },
+        validationSchema: contactFormSchema,
+        onSubmit
+    })
 
     return (
-        <>
-            {
-                sent?
-                <p className={ContactFormCSS.sent}>Thank you! We resived your message</p>
-                :
-                <form onSubmit={handelSubmit} className={ContactFormCSS.form}>
-                    <label htmlFor="userName">Your Name</label>
-                    <input type="text" name="userName" id="userName" placeholder='ex: John Doe' value={userInput.userName} onChange={handelForm} minLength={3} maxLength={50}/>
+        <form onSubmit={handleSubmit} className={ContactFormCSS.form}>
+            <label htmlFor="userName">Your Name</label>
+            <input
+                type="text"
+                name="userName"
+                id="userName"
+                placeholder='ex: John Doe'
+                value={values.userName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={errors.userName && touched.userName && ContactFormCSS.invalidInput}
+            />
+            {errors.userName && touched.userName && <p className={ContactFormCSS.error_message}>{errors.userName}</p>}
 
-                    <label htmlFor="userEmail">Your Email</label>
-                    <input type="email" name="userEmail" id="userEmail" placeholder='example@gamil.com' value={userInput.userEmail} onChange={handelForm} minLength={3} maxLength={50}/>
+            <label htmlFor="userEmail">Your Email</label>
+            <input
+                type="email"
+                name="userEmail"
+                id="userEmail"
+                placeholder='example@gamil.com'
+                value={values.userEmail}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={errors.userEmail && touched.userEmail && ContactFormCSS.invalidInput}
+            />
+            {errors.userEmail && touched.userEmail && <p className={ContactFormCSS.error_message}>{errors.userEmail}</p>}
 
-                    <label htmlFor="userPhone">Your Phone Number</label>
-                    <input type="number" name="userPhone" id="userPhone" placeholder='+1 (xxx) xxx-xxxx' value={userInput.userPhone} onChange={handelForm}/>
+            <label htmlFor="userPhone">Your Phone Number <span className={ContactFormCSS.optional}>(optional)</span></label>
+            <input
+                type="number"
+                name="userPhone"
+                id="userPhone"
+                placeholder='+1 (xxx) xxx-xxxx'
+                value={values.userPhone}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={errors.userPhone && touched.userPhone && ContactFormCSS.invalidInput}
+            />
+            {errors.userPhone && touched.userPhone && <p className={ContactFormCSS.error_message}>{errors.userPhone}</p>}
 
-                    <label htmlFor="userComment">Your Comment</label>
-                    <textarea type="text" name="userComment" id="userComment" placeholder='Write down your comment here...' value={userInput.userComment} onChange={handelForm} rows={10} cols={30}/>
-                    {invalid? <p style={{color: 'red'}}>* Fill all required fields</p>: null}
-                    <button className={ContactFormCSS.btn}>Send</button>
-                </form>
-            }
-        </>
+            <label htmlFor="userComment">Your Comment</label>
+            <textarea
+                type="text"
+                name="userComment"
+                id="userComment"
+                rows={10}
+                cols={30}
+                placeholder='Write down your comment here...'
+                value={values.userComment}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={errors.userComment && touched.userComment && ContactFormCSS.invalidInput}
+            />
+            {errors.userComment && touched.userComment && <p className={ContactFormCSS.error_message}>{errors.userComment}</p>}
+
+            <button className={`${ContactFormCSS.btn} ${isValid ? ContactFormCSS.btnValid : ContactFormCSS.btnInValid}`} disabled={!isValid} type="submit">Send</button>
+        </form>
     );
 };
 

@@ -1,4 +1,3 @@
-
 .form {
     display: flex;
     flex-flow: column nowrap;
@@ -12,8 +11,8 @@
     }
 }
 
-.form > textarea,
-.form > input {
+.form>textarea,
+.form>input {
     height: 40px;
     border-radius: 5px;
     border: none;
@@ -22,18 +21,18 @@
     padding-left: 10px;
 }
 
-.form > textarea {
+.form>textarea {
     padding: 10px;
     height: auto;
 }
 
-.form > label {
+.form>label {
     position: relative;
     width: fit-content;
     font-size: var(--font-400);
 }
 
-.form > label:not(:nth-of-type(3)):after {
+.form>label:not(:nth-of-type(3)):after {
     content: '*';
     position: absolute;
     color: red;
@@ -41,13 +40,13 @@
     top: 0;
 }
 
-.form > textarea:focus,
-.form > input:focus {
+.form>textarea:focus,
+.form>input:focus {
     border-color: var(--yellow-main);
 }
 
-.form > textarea:invalid,
-.form > input:invalid {
+.form>textarea:invalid,
+.form>input:invalid {
     border-color: red;
 }
 
@@ -63,12 +62,26 @@
     transition: 0.3s;
 }
 
-.btn:hover {
+.btnValid:hover {
     background-color: gray;
     color: white;
 }
 
-.sent {
-    font-size: var(--font-600);
-    align-self: center;
+.btnInValid {
+    opacity: 0.5;
+}
+
+.error_message {
+    font-size: var(--font-200);
+    color: tomato;
+}
+
+.invalidInput {
+    border-color: tomato !important;
+}
+
+.optional {
+    font-size: var(--font-200);
+    font-style: italic;
+    opacity: 0.8;
 }

@@ -1,4 +1,3 @@
-/* start hero */
 .section {
     display: flex;
     flex-flow: column nowrap;
@@ -35,9 +34,10 @@
     margin-top: 50px;
 }
 
-.text > h1 {
+.text>h1 {
     font-size: var(--font-xl);
     font-weight: 300;
+    max-width: 400px;
 }
 
 .btn {
@@ -46,7 +46,7 @@
     gap: 10px;
 }
 
-.btn  button {
+.btn button {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -63,17 +63,17 @@
     transition: 0.3s;
 }
 
-.btn  button:hover {
+.btn button:hover {
     background-color: var(--yellow-main);
     transform: translateY(-3px);
 }
 
-.btn  button > p:first-of-type {
+.btn button>p:first-of-type {
     font-weight: bold;
     line-height: 20px;
 }
 
-.btn  button > p:last-of-type {
+.btn button>p:last-of-type {
     font-size: 12px;
     line-height: 16px;
 }
@@ -91,7 +91,7 @@
     box-shadow: 0 8px 40px 0px var(--shadow-color);
 }
 
-.info > div {
+.info>div {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -99,14 +99,13 @@
     flex: 1 1 auto;
 }
 
-.info > div > p {
+.info>div>p {
     font-weight: 300;
     font-size: var(--font-300);
-    white-space: nowrap;
+    max-width: 170px;
 }
 
-.info > div > img {
+.info>div>img {
     width: 48px;
     height: 48px;
 }
-/* end hero */

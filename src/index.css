@@ -80,6 +80,10 @@ html {
     -webkit-tap-highlight-color: transparent;
 }
 
+br {
+    display: none;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -171,24 +175,7 @@ input[type=number] {
 
 /* end global */
 
-/* start global components */
-.section__title {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20px;
-    gap: 20px;
-}
-
-.section__title>h2 {
-    font-size: var(--font-700);
-    font-weight: 300;
-    letter-spacing: 0.08em;
-}
-
-/* end global components */
-
+/* start swiper settings */
 .swiper {
     overflow: visible;
     cursor: move;
@@ -209,6 +196,8 @@ input[type=number] {
     color: #fff;
     font-weight: 600;
 }
+
+/* end swiper settings */
 
 /* start animation */
 .fadeIn-animation {

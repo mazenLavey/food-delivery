@@ -1,0 +1,8 @@
+.imgContainer {
+    aspect-ratio: 1 / 1;
+    min-width: 200px;
+}
+
+.imgContainer>img {
+    width: 100%;
+}

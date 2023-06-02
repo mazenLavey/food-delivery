@@ -1,0 +1,18 @@
+.section__title {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.section__title>h2 {
+    font-size: var(--font-700);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+}
+
+.section__title h2>span {
+    color: gray;
+}

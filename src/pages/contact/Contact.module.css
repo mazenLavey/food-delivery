@@ -1,4 +1,3 @@
-
 .section {
     margin-bottom: var(--section-margin);
 }
@@ -18,12 +17,11 @@
     }
 }
 
-.address > h2 {
+.address>h2 {
     font-size: var(--font-700);
 }
 
-.address > p {
+.address>p {
     line-height: 2;
     font-size: var(--font-400);
 }
-

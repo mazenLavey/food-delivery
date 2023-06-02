@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import {MenuDataContext}  from '../../context/MenuDataContext';
+import React, { useContext } from "react";
+import { MenuDataContext } from '../../context/MenuDataContext';
 import TodayDishCSS from './TodayDish.module.css';
 import ProductCard from '../../components/ProductCard';
 import LoadingSpan from '../../components/LoadingSpan';
@@ -10,11 +10,11 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 
-const TodayDish = ()=>{
-    const {cartItems, dataIsLoaded} = useContext(MenuDataContext);
-    const {isMobile} = useMedia();
+const TodayDish = () => {
+    const { cartItems, dataIsLoaded } = useContext(MenuDataContext);
+    const { isMobile } = useMedia();
 
-    const elements = cartItems.map(el => el.discount? <SwiperSlide key={el.id}><ProductCard data={el} showParagraph={false} SkeletonImgHeight={'210px'}/></SwiperSlide>  : null)
+    const elements = cartItems.map(el => el.discount ? <SwiperSlide key={el.id}><ProductCard data={el} showParagraph={false} SkeletonImgHeight={'210px'} /></SwiperSlide> : null)
     return (
         <>
             <section className="container">
@@ -22,29 +22,29 @@ const TodayDish = ()=>{
                     <h2>Today's dishes</h2>
                 </div>
                 {
-                    dataIsLoaded?
-                    <div className={TodayDishCSS.wrapper}>
-                        <Swiper 
-                            spaceBetween={20}
-                            slidesPerView={1.4}
-                            navigation={isMobile ? false : true}
-                            modules={[Navigation]}
-                            breakpoints={{
-                                576: {
-                                    slidesPerView: 2.4
-                                },
-                                992: {
-                                    slidesPerView: 3.4
-                                }
-                            }}
-                        >
-                            {elements}
-                        </Swiper>
-                    </div>
-                    :
-                    <div className={TodayDishCSS.loading__div}>
-                        <LoadingSpan />
-                    </div>
+                    dataIsLoaded ?
+                        <div className={TodayDishCSS.wrapper}>
+                            <Swiper
+                                spaceBetween={20}
+                                slidesPerView={1.4}
+                                navigation={isMobile ? false : true}
+                                modules={[Navigation]}
+                                breakpoints={{
+                                    768: {
+                                        slidesPerView: 2.5
+                                    },
+                                    992: {
+                                        slidesPerView: 3.4
+                                    }
+                                }}
+                            >
+                                {elements}
+                            </Swiper>
+                        </div>
+                        :
+                        <div className={TodayDishCSS.loading__div}>
+                            <LoadingSpan />
+                        </div>
                 }
             </section>
         </>

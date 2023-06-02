@@ -9,7 +9,7 @@
     border-radius: 8px;
 }
 
-.wrapper > article > h2 {
+.wrapper>article>h2 {
     font-size: var(--font-600);
     padding: 10px 20px;
     border-bottom: 1px solid var(--gray-dark);
@@ -17,15 +17,15 @@
     cursor: pointer;
 }
 
-.wrapper > article:last-of-type > h2 {
+.wrapper>article:last-of-type>h2 {
     border-bottom: none;
 }
 
-.wrapper > article > h2:hover {
+.wrapper>article>h2:hover {
     background-color: var(--yellow-main);
 }
 
-.wrapper > article > p  {
+.wrapper>article>p {
     padding: 10px 20px;
     font-size: var(--font-400);
 }

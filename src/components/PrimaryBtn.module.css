@@ -1,5 +1,3 @@
-
-
 .primaryBtnYellow,
 .primaryBtnGray {
     border: none;
@@ -21,7 +19,7 @@
 }
 
 .primaryBtnGray:hover {
-    background-color: var(--gray-dark);
+    background-color: var(--yellow-main);
 }
 
 .primaryBtnYellow {
@@ -35,6 +33,7 @@
 }
 
 @media (max-width: 575px) {
+
     .primaryBtnYellow,
     .primaryBtnGray {
         width: 85px;
