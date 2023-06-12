@@ -1,13 +1,12 @@
 import React from "react";
 import HeaderCSS from './Header.module.css';
 import { useLocation } from "react-router-dom";
-import NavMenu from "./NavMenu";
-import PrimaryBtn from '../../components/PrimaryBtn';
-import CartIcon from '../../components/CartIcon';
-import Logo from '../../components/Logo';
+import NavMenu from "./components/Nav/NavMenu";
+import CartIcon from './components/cartIcon/CartIcon';
+import PrimaryBtn from 'components/primaryBtn/PrimaryBtn';
+import Logo from 'components/logo/Logo';
 
-
-function Header() {
+const Header = () => {
     const location = useLocation();
     const showOrderBtn = location.pathname === '/' || location.pathname === '/about';
 

@@ -1,0 +1,33 @@
+.info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.info h2 {
+    margin-bottom: 15px;
+    font-size: var(--font-600);
+}
+
+.info li,
+.info p {
+    font-weight: 300;
+    margin-bottom: 10px;
+    font-size: var(--font-300);
+}
+
+.info li a:hover {
+    opacity: 0.5;
+}
+
+.store__links {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 18px;
+    margin-top: 5px;
+}
+
+.store__links a>img {
+    max-width: 150px;
+}

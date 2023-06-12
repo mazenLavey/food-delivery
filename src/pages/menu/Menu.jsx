@@ -1,11 +1,8 @@
-import React from 'react';
 import MenuCSS from './Menu.module.css';
-import MenuFilter from './MenuFilter';
-import MenuItems from './MenuItems';
+import MenuFilter from './components/MenuFilter/MenuFilter';
+import MenuItems from './components/MenuItems/MenuItems';
 
-
-const Menu = ()=>{
-
+const Menu = () => {
     return (
         <main className={`${MenuCSS.section} container`}>
             <h1>Menu</h1>
@@ -15,4 +12,4 @@ const Menu = ()=>{
     );
 };
 
-export default React.memo(Menu);
+export default Menu;

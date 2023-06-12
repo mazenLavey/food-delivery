@@ -1,0 +1,9 @@
+.concept {
+    margin-bottom: var(--section-margin);
+}
+
+.concept>p {
+    line-height: 1.6;
+    margin-top: 10px;
+    font-size: var(--font-400);
+}

@@ -1,14 +1,14 @@
 import React from "react";
-import HomeNav from './HomeNav';
-import Hero from './Hero';
-import Restaurants from './Restaurants';
-import NearRestaurant from './NearRestaurant';
-import Specialities from './Specialities';
-import InfoBanner from './InfoBanner';
-import Gallery from './Gallery';
-import TodayDish from './TodayDish';
+import HomeNav from './components/HomeNav/HomeNav';
+import Hero from './components/Hero/Hero';
+import Restaurants from './components/Restaurants/Restaurants';
+import NearRestaurant from './components/NearRestaurant/NearRestaurant';
+import Specialities from './components/Specialities/Specialities';
+import InfoBanner from './components/InfoBanner/InfoBanner';
+import Gallery from './components/Gallery/Gallery';
+import TodayDish from './components/TodayDish/TodayDish';
 
-const Home = ()=>{
+const Home = () => {
     return (
         <>
             <HomeNav />

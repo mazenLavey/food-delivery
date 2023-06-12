@@ -1,5 +1,3 @@
-/* start header */
-
 .section {
     height: 70px;
     border-bottom: 1px solid var(--shadow-color);
@@ -28,5 +26,3 @@
         gap: 0px;
     }
 }
-/* end header */
-

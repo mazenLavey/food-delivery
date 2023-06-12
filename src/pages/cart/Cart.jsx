@@ -1,36 +1,26 @@
-// import React, { useContext } from 'react';
-// import { nanoid } from 'nanoid';
-// import { MenuDataContext } from '../../context/MenuDataContext';
-// import CartItems from './CartItems';
+import { NavLink, Outlet } from "react-router-dom";
+import CartHeader from "./components/CartHeader/CartHeader";
+import CartCSS from "./Cart.module.css";
+import { useContext } from "react";
+import { MenuDataContext } from "context/MenuDataContext";
 
-// import CartForm from './CartForm';
-// import sumTotal from '../../functions/sumTotal';
-// import EmptyCart from './EmptyCart';
-// import CartHeader from './CartHeader';
-// import priceFormatter from '../../functions/priceFormatter';
-// import { Link, NavLink } from "react-router-dom";
-// import PrimaryBtn from '../../components/PrimaryBtn';
-// import OrderPreview from './OrderPreview';
+const Cart = () => {
+    const { cartItems } = useContext(MenuDataContext);
+    const cartIsEmpty = cartItems.filter(el => el.orders > 0).length > 0 ? false : true;
 
-// const Cart = () => {
-//     const { cartItems } = useContext(MenuDataContext);
+    return (
+        <main className="container">
+            <CartHeader cartIsEmpty={cartIsEmpty} />
+            <div className={CartCSS.wrapper}>
+                <div className={CartCSS.progress}>
+                    <NavLink to="/cart">order previwe</NavLink>
+                    <NavLink to="/cart/order-confirmation">information</NavLink>
+                    <NavLink to="/cart/order-confirmation/checkout">payment</NavLink>
+                </div>
+                <Outlet />
+            </div>
+        </main>
+    )
+}
 
-//     const orderElements = cartItems.filter(el => {
-//         return el.orders > 0;
-//     });
-
-//     const cartIsEmpty = orderElements.length > 0 ? false : true;
-
-//     return (
-//         <main>
-//             {
-//                 cartIsEmpty ?
-//                     <EmptyCart />
-//                     :
-//                     <OrderPreview orderElements={orderElements} />
-//             }
-//         </main>
-//     );
-// };
-
-// export default Cart;
+export default Cart;

@@ -1,23 +1,23 @@
 import React from 'react'
-import Header from './layouts/header/Header';
-import Footer from './layouts/footer/Footer';
-import Home from './pages/home/Home';
-import OrderPreview from './pages/cart/OrderPreview';
-import About from './pages/about/About';
-import Menu from './pages/menu/Menu';
-import Contact from './pages/contact/Contact';
-import Help from './pages/help/Help';
-import Terms from './pages/help/Terms';
-import FAQs from './pages/help/FAQs';
-import PrivacyPolicy from './pages/help/PrivacyPolicy';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import ToUpBtn from './components/ToUpBtn';
-import ScrollToTop from './functions/ScrollToTop';
-import AlertBox from './components/AlertBox';
-import OrderConfirmation from './pages/cart/OrderConfirmation';
-import Checkout from './pages/cart/Checkout';
-import CartLayout from './pages/cart/CartLayout';
-import BreadCrumbs from './components/BreadCrumbs';
+import Header from 'layouts/header/Header';
+import Footer from 'layouts/footer/Footer';
+import Home from 'pages/home/Home';
+import OrderPreview from 'pages/cart/components/OrderPreview/OrderPreview';
+import About from 'pages/about/About';
+import Menu from 'pages/menu/Menu';
+import Contact from 'pages/contact/Contact';
+import Help from 'pages/help/Help';
+import Terms from 'pages/help/terms/Terms';
+import FAQs from 'pages/help/FAQs/FAQs';
+import PrivacyPolicy from 'pages/help/privacy-policy/PrivacyPolicy';
+import ScrollToTop from 'utils/ScrollToTop';
+import OrderConfirmation from 'pages/cart/order-confirmation/OrderConfirmation';
+import Checkout from 'pages/cart/checkout/Checkout';
+import CartLayout from 'pages/cart/Cart';
+import ToUpBtn from 'components/toUpBtn/ToUpBtn';
+import AlertBox from 'components/alertBox/AlertBox';
+import BreadCrumbs from 'components/breadCrumbs/BreadCrumbs';
 
 const App = () => {
 

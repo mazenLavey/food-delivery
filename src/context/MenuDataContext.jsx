@@ -1,7 +1,7 @@
 import React, { useState, createContext, useEffect } from 'react';
-import useFetch from '../hooks/useFetch';
-import sumTotal from '../functions/sumTotal';
-import priceFormatter from '../functions/priceFormatter';
+import useFetch from 'hooks/useFetch';
+import sumTotal from 'utils/sumTotal';
+import priceFormatter from 'utils/priceFormatter';
 
 const MenuDataContext = createContext();
 

@@ -1,13 +1,11 @@
 import React from 'react';
-import Map from './Map';
+import Map from 'pages/contact/components/map/Map';
 import ContactCSS from './Contact.module.css';
-import ContactForm from '../../components/ContactForm';
+import ContactForm from 'pages/contact/components/contactForm/ContactForm';
 
-const Contact = ()=>{
-
+const Contact = () => {
     return (
-        <>
-        <div className={`${ContactCSS.section} container`}>
+        <main className={`${ContactCSS.section} container`}>
             <div className={ContactCSS.wrappe}>
                 <ContactForm />
                 <div className={ContactCSS.address}>
@@ -16,8 +14,7 @@ const Contact = ()=>{
                 </div>
             </div>
             <Map />
-        </div>
-        </>
+        </main>
     );
 };
 
