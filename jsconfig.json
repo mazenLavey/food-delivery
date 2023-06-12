@@ -5,8 +5,8 @@
             "assets/*": [
                 "assets/*"
             ],
-            "common/*": [
-                "common/*"
+            "components/*": [
+                "components/*"
             ],
             "config/*": [
                 "config/*"
