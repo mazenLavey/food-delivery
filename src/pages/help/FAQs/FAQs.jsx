@@ -1,16 +1,17 @@
-import useFetch from 'hooks/useFetch';
+import { useContext } from 'react';
+import { GlobalContext } from 'context/GlobalContext';
 import FAQsCSS from './FAQs.module.css';
 import FAQsCard from 'pages/help/FAQs/FAQsCard';
 import LoadingSpan from 'components/loadingSpan/LoadingSpan';
 
 const FAQs = () => {
-    const { readyData, dataIsLoaded } = useFetch("faqs");
+    const { faq, isLoading } = useContext(GlobalContext);
 
     function renderElements() {
-        if (!dataIsLoaded) {
+        if (isLoading) {
             return <LoadingSpan />
         }
-        const elements = readyData.map(el => <FAQsCard key={el.id} data={el} />)
+        const elements = faq.map(el => <FAQsCard key={el.id} data={el} />)
         return elements
     }
 

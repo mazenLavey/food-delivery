@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import SpecialityCardCSS from './SpecialityCard.module.css';
 import { Link } from 'react-router-dom';
-import { MenuDataContext } from 'context/MenuDataContext';
+import { GlobalContext } from 'context/GlobalContext';
 
 const SpecialityCard = ({ img, title, category }) => {
-    const { useMenuFilter } = useContext(MenuDataContext);
+    const { useMenuFilter } = useContext(GlobalContext);
 
     function ChangeCategory() {
         useMenuFilter(category);

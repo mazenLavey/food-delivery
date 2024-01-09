@@ -1,7 +1,6 @@
 import React from 'react';
 import BreadCrumbsCSS from './BreadCrumbs.module.css';
 import { Link } from 'react-router-dom';
-import { nanoid } from 'nanoid';
 import { useLocation } from 'react-router-dom';
 
 const BreadCrumbs = () => {
@@ -9,9 +8,9 @@ const BreadCrumbs = () => {
     let currentLink = '';
     const linksList = location.pathname.split('/').filter(el => el !== '');
 
-    const breadcrumb = linksList.map(el => {
+    const breadcrumb = linksList.map((el, index) => {
         currentLink += `/${el}`;
-        return <li key={nanoid()}><Link to={currentLink}>{el}</Link></li>
+        return <li key={index}><Link to={currentLink}>{el}</Link></li>
     });
 
     return (

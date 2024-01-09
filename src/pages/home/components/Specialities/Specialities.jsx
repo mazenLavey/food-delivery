@@ -1,22 +1,22 @@
-import useFetch from 'hooks/useFetch';
+import { useContext } from 'react';
+import { GlobalContext } from 'context/GlobalContext';
 import SpecialitiesCSS from "./Specialities.module.css";
 import SpecialityCard from 'components/specialityCard/SpecialityCard';
 import SectionHeader from 'components/sectionHeader/SectionHeader';
 import useMedia from 'hooks/useMedia';
-import { nanoid } from "nanoid";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 const Specialities = () => {
-    const { readyData } = useFetch('specialities')
+    const { specialities } = useContext(GlobalContext)
     const { isMobile } = useMedia();
 
-    const element = readyData.map(el => {
+    const element = specialities.map((el, index) => {
         if (isMobile) {
-            return <SwiperSlide key={nanoid()}><SpecialityCard title={el.title} img={el.img} category={el.category} /></SwiperSlide>;
-        } else {
-            return <SpecialityCard key={nanoid()} title={el.title} img={el.img} category={el.category} />;
+            return <SwiperSlide key={index}><SpecialityCard title={el.title} img={el.img} category={el.category} /></SwiperSlide>;
         }
+        
+        return <SpecialityCard key={index} title={el.title} img={el.img} category={el.category} />;
     });
 
     return (

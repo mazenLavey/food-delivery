@@ -1,17 +1,16 @@
-import { nanoid } from "nanoid";
 import PrimaryBtn from "components/primaryBtn/PrimaryBtn";
 import CartItems from "pages/cart/components/CartItems/CartItems";
 import OrderPreviewCSS from './OrderPreview.module.css';
 import { useContext } from "react";
-import { MenuDataContext } from "context/MenuDataContext";
+import { MenuContext } from "context/MenuContext";
 import EmptyCart from "./EmptyCart";
 
 const OrderPreview = () => {
-    const { cartItems, totalPrice } = useContext(MenuDataContext);
-    const orderElements = cartItems.filter(el => el.orders > 0);
+    const { menuItems, totalPrice } = useContext(MenuContext);
+    const orderElements = menuItems.filter(el => el.orders > 0);
     const cartIsEmpty = orderElements.length > 0 ? false : true;
     const renderElements = orderElements.map(el => {
-        return <CartItems key={nanoid()} data={el} />;
+        return <CartItems key={el.id} data={el} />;
     });
 
     return (

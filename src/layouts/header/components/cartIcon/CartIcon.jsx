@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import cartIcon from "assets/svg/cart-icon.svg";
 import CartIconCSS from './CartIcon.module.css';
-import { MenuDataContext } from "context/MenuDataContext";
+import { MenuContext } from "context/MenuContext";
 import { Link } from 'react-router-dom';
 
 
 const CartIcon = () => {
-    const { numItemsInCart } = useContext(MenuDataContext);
+    const { numItemsInCart } = useContext(MenuContext);
 
     return (
         <Link to="/cart" className={CartIconCSS.icon}>

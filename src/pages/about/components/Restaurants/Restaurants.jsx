@@ -1,19 +1,21 @@
-import useFetch from 'hooks/useFetch';
+import { useContext } from 'react';
+import { GlobalContext } from 'context/GlobalContext';
 import RestaurantsCSS from './Restaurants.module.css';
 import AboutRestaurantCard from './AboutRestaurantCard';
-import { nanoid } from 'nanoid';
 import LoadingSpan from 'components/loadingSpan/LoadingSpan';
 
 const Restaurants = () => {
-    const { readyData, dataIsLoaded } = useFetch("restaurants");
+    const { restaurants, isLoading } = useContext(GlobalContext);
 
     function renderList() {
-        if (!dataIsLoaded) {
+        if (isLoading) {
             return <LoadingSpan />
         }
-        const elements = readyData.map(el => <AboutRestaurantCard key={nanoid()} data={el} />);
+
+        const elements = restaurants.map((el, index) => <AboutRestaurantCard key={index} data={el} />);
         return elements
     };
+
     return (
         <div className={RestaurantsCSS.wrapper}>
             <h2>Restaurants</h2>

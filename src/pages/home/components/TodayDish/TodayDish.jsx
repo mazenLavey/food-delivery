@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { MenuDataContext } from 'context/MenuDataContext';
+import { MenuContext } from 'context/MenuContext';
 import TodayDishCSS from './TodayDish.module.css';
 import ProductCard from 'components/productCard/ProductCard';
 import LoadingSpan from 'components/loadingSpan/LoadingSpan';
@@ -11,10 +11,15 @@ import 'swiper/css/navigation';
 
 
 const TodayDish = () => {
-    const { cartItems, dataIsLoaded } = useContext(MenuDataContext);
+    const { menuItems, isLoading } = useContext(MenuContext);
     const { isMobile } = useMedia();
 
-    const elements = cartItems.map(el => el.discount ? <SwiperSlide key={el.id}><ProductCard data={el} showParagraph={false} SkeletonImgHeight={'210px'} /></SwiperSlide> : null)
+    const elements = menuItems?.filter(el => el?.discount).map(el => 
+        <SwiperSlide key={el.id}>
+            <ProductCard data={el} showParagraph={false} SkeletonImgHeight={'210px'} />
+        </SwiperSlide> 
+        );
+
     return (
         <>
             <section className="container">
@@ -22,7 +27,11 @@ const TodayDish = () => {
                     <h2>Today's dishes</h2>
                 </div>
                 {
-                    dataIsLoaded ?
+                    isLoading ?
+                        <div className={TodayDishCSS.loading__div}>
+                            <LoadingSpan />
+                        </div>
+                        :
                         <div className={TodayDishCSS.wrapper}>
                             <Swiper
                                 spaceBetween={20}
@@ -40,10 +49,6 @@ const TodayDish = () => {
                             >
                                 {elements}
                             </Swiper>
-                        </div>
-                        :
-                        <div className={TodayDishCSS.loading__div}>
-                            <LoadingSpan />
                         </div>
                 }
             </section>

@@ -5,7 +5,6 @@ import MenuItems from './components/MenuItems/MenuItems';
 const Menu = () => {
     return (
         <main className={`${MenuCSS.section} container`}>
-            <h1>Menu</h1>
             <MenuFilter />
             <MenuItems />
         </main>
