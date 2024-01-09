@@ -1,26 +1,37 @@
 import { useContext } from 'react';
 import { GlobalContext } from 'context/GlobalContext';
-import FAQsCSS from './FAQs.module.css';
-import FAQsCard from 'pages/help/FAQs/FAQsCard';
 import LoadingSpan from 'components/loadingSpan/LoadingSpan';
+import Collapse, { Panel } from 'rc-collapse';
+import 'rc-collapse/assets/index.css';
+import './FAQs.css';
 
 const FAQs = () => {
     const { faq, isLoading } = useContext(GlobalContext);
 
     function renderElements() {
-        if (isLoading) {
-            return <LoadingSpan />
-        }
-        const elements = faq.map(el => <FAQsCard key={el.id} data={el} />)
+        const elements = faq.map(el => {
+            return(
+                    <Panel header={el.title} headerClass="faq__item">
+                        <p>{el.answer}</p>
+                    </Panel>
+                );
+        });
+        
         return elements
     }
 
     return (
-        <main className='container'>
-            <h1 className={FAQsCSS.title}>FAQs</h1>
-            <div className={`${FAQsCSS.wrapper} fadeIn-animation`}>
-                {renderElements()}
-            </div>
+        <main className="container">
+            <h1 className="faq__title">FAQs</h1>
+
+            {
+                isLoading ?
+                <LoadingSpan />
+                :
+                <Collapse className="faq__collapse" defaultActiveKey="0" accordion={true} >
+                    {renderElements()}
+                </Collapse>
+            }
         </main>
     );
 };

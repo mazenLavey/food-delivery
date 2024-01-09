@@ -1,0 +1,23 @@
+.faq__title {
+    font-size: var(--font-700);
+}
+
+.faq__collapse {
+    margin: 20px 0;
+    border: 1px solid var(--gray-dark);
+}
+
+.faq__collapse > .rc-collapse-item-active {
+    background-color: var(--yellow-main);
+}
+
+.faq__item {
+    font-size: var(--font-600);
+    padding: 16px 20px !important;
+    border-bottom: 1px solid var(--gray-dark);
+    color: var(--gray-main) !important;
+}
+
+.faq__item:hover {
+    background-color: var(--yellow-main);
+}
