@@ -5,6 +5,13 @@
     overflow: hidden;
 }
 
+@media (max-width: 575px) {
+    .wrapper {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+}
+
 .wrapper h3 {
     font-size: var(--font-300) !important;
 }
