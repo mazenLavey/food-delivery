@@ -9,6 +9,14 @@
     scrollbar-color: var(--gray-light) transparent;
 }
 
+@media (max-width: 575px) {
+    .photos {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding: 20px;
+    }
+}
+
 .photos::-webkit-scrollbar {
     height: 5px;
 }
