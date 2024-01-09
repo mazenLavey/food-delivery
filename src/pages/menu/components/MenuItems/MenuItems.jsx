@@ -1,15 +1,11 @@
-import React, { useContext } from "react";
 import ProductCard from 'components/productCard/ProductCard';
-import { MenuContext } from 'context/MenuContext';
 import MenuItemsCSS from './MenuItems.module.css';
-import CardSkeletonCSS from './CardSkeleton';
 
-const MenuItems = () => {
-    const { menuItems, isLoading, filterMenu } = useContext(MenuContext);
+const MenuItems = ({menuItems, filterMenu}) => {
 
     function renderMenuItems() {
         if (filterMenu && filterMenu !== 'all') {
-            const menuElements = menuItems.filter(el => el.category === filterMenu).map(el => <ProductCard key={el.id} data={el} />);
+            const menuElements = menuItems?.filter(el => el.category === filterMenu).map(el => <ProductCard key={el.id} data={el} />);
 
             return menuElements;
         };
@@ -21,13 +17,9 @@ const MenuItems = () => {
 
     return (
         <div className={MenuItemsCSS.wrapper}>
-            {isLoading ?
-                <CardSkeletonCSS cards={6} />
-                :
-                renderMenuItems()
-            }
+            { renderMenuItems() }
         </div>
     )
 };
 
-export default React.memo(MenuItems);
+export default MenuItems;
