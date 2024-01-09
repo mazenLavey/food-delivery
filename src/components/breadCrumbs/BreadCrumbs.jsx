@@ -14,7 +14,6 @@ const BreadCrumbs = () => {
         return <li key={nanoid()}><Link to={currentLink}>{el}</Link></li>
     });
 
-    console.log(location.pathname)
     return (
         <>
             {
