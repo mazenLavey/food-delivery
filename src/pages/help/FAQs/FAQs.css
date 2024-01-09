@@ -11,13 +11,14 @@
     background-color: var(--yellow-main);
 }
 
-.faq__item {
+.faq__collapse .rc-collapse-header {
     font-size: var(--font-600);
     padding: 16px 20px !important;
     border-bottom: 1px solid var(--gray-dark);
     color: var(--gray-main) !important;
+    background-color: transparent;
 }
 
-.faq__item:hover {
+.faq__collapse .rc-collapse-header:hover {
     background-color: var(--yellow-main);
 }
