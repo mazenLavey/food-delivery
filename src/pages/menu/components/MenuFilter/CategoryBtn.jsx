@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { MenuDataContext } from 'context/MenuDataContext';
+import { MenuContext } from 'context/MenuContext';
 
 const CategoryBtn = ({ name, ChangeCategory }) => {
-    const { filterItems } = useContext(MenuDataContext);
+    const { filterMenu } = useContext(MenuContext);
 
     return (
-        <span className={filterItems === name ? 'active' : null} data-category={name} onClick={ChangeCategory}>{name}</span>
+        <span className={filterMenu === name ? 'active' : null} data-category={name} onClick={ChangeCategory}>{name}</span>
     );
 };
 

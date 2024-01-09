@@ -11,7 +11,6 @@ const NearRestaurant = () => {
 
     function handelForm(e) {
         e.preventDefault();
-        // send data then clear input field
         setUserInput('');
     };
 

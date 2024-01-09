@@ -2,11 +2,11 @@ import { NavLink, Outlet } from "react-router-dom";
 import CartHeader from "./components/CartHeader/CartHeader";
 import CartCSS from "./Cart.module.css";
 import { useContext } from "react";
-import { MenuDataContext } from "context/MenuDataContext";
+import { MenuContext } from "context/MenuContext";
 
 const Cart = () => {
-    const { cartItems } = useContext(MenuDataContext);
-    const cartIsEmpty = cartItems.filter(el => el.orders > 0).length > 0 ? false : true;
+    const { menuItems } = useContext(MenuContext);
+    const cartIsEmpty = menuItems.filter(el => el.orders > 0).length > 0 ? false : true;
 
     return (
         <main className="container">

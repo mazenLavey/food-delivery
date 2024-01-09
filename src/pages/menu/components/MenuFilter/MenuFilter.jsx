@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
-import { nanoid } from 'nanoid';
-import { MenuDataContext } from 'context/MenuDataContext';
+import React, { useContext, useEffect } from 'react';
+import { MenuContext } from 'context/MenuContext';
 import MenuFilterCSS from './MenuFilter.module.css';
 import CategoryBtn from './CategoryBtn';
 import Skeleton from 'react-loading-skeleton';
@@ -9,31 +8,33 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 const MenuFilter = () => {
-    const { cartItems, dataIsLoaded, useMenuFilter, filterItems } = useContext(MenuDataContext);
+    const { changeMenuFilter, isLoading, filterMenu, dishesCategories } = useContext(MenuContext);
 
     function ChangeCategory(e) {
         let changeTo = e.target.dataset.category;
-        useMenuFilter(changeTo);
+        changeMenuFilter(changeTo);
     };
 
-    function findCategory() {
-        let list = [];
-        cartItems.map(el => list.push(el.category));
-        return Array.from(new Set(list))
-    };
+    useEffect(()=>{
+        changeMenuFilter('');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
-    // display items according to category filter
-    const categoriesList = findCategory();
-    const categoriesElements = categoriesList.map(el => {
-        return <SwiperSlide key={nanoid()} ><CategoryBtn name={el} ChangeCategory={ChangeCategory} /></SwiperSlide>
+    const categoriesElements = dishesCategories.map((el, index) => {
+        return (
+            <SwiperSlide key={index} >
+                <CategoryBtn name={el} ChangeCategory={ChangeCategory} />
+            </SwiperSlide>
+        );
     });
-
 
     return (
         <div className={MenuFilterCSS.categories}>
             <div className={MenuFilterCSS.slider}>
                 {
-                    dataIsLoaded ?
+                    isLoading ?
+                        <Skeleton count={0.9} height={35} />
+                        :
                         <Swiper
                             slidesPerView={2.5}
                             spaceBetween={10}
@@ -56,12 +57,10 @@ const MenuFilter = () => {
                             }}
                         >
                             <SwiperSlide>
-                                <span className={filterItems === 'all' || filterItems === '' ? 'active' : null} data-category="all" onClick={ChangeCategory} >all</span>
+                                <span className={filterMenu === 'all' || filterMenu === '' ? 'active' : null} data-category="all" onClick={ChangeCategory} >all</span>
                             </SwiperSlide>
                             {categoriesElements}
                         </Swiper>
-                        :
-                        <Skeleton count={0.9} height={35} />
                 }
             </div>
         </div>

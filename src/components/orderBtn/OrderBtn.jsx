@@ -1,14 +1,17 @@
 import React, { useContext } from 'react';
 import OrderBtnCSS from './OrderBtn.module.css';
-import { MenuDataContext } from 'context/MenuDataContext';
+import { MenuContext } from 'context/MenuContext';
+import { notify } from 'components/alertBox/AlertBox';
+import { ALERT_TYPE } from 'constants/alert';
 
 const OrderBtn = ({ text, id, height = "45" }) => {
-    const { cartItems, addToCart, removeFromCart, newItemIsAdded } = useContext(MenuDataContext);
-    const item = cartItems.find(el => el.id === id);
+    const { menuItems, addToCart, removeFromCart } = useContext(MenuContext);
+
+    const item = menuItems.find(el => el.id === id);
 
     function handelClick() {
         addToCart(id);
-        newItemIsAdded();
+        notify(ALERT_TYPE.SUCCESS); // when adding dish to cart for the first time only
     };
 
     return (

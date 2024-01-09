@@ -1,14 +1,15 @@
-import useFetch from 'hooks/useFetch';
+import { useContext } from 'react';
+import { GlobalContext } from 'context/GlobalContext';
 import RestaurantsCSS from "./Restaurants.module.css";
 import RestaurantCard from './RestaurantCard';
 import LoadingSpan from 'components/loadingSpan/LoadingSpan';
 import SectionHeader from "components/sectionHeader/SectionHeader";
 
 const Restaurants = () => {
-    const { readyData, dataIsLoaded } = useFetch("restaurants");
+    const { restaurants, isLoading } = useContext(GlobalContext);
 
     function renderList() {
-        const elements = readyData.map(el => {
+        const elements = restaurants.map(el => {
             return (
                 <div className={RestaurantsCSS.card} key={el.id}>
                     <RestaurantCard item={el} />
@@ -21,12 +22,12 @@ const Restaurants = () => {
     return (
         <section className={`${RestaurantsCSS.section} container`} id="restaurants">
             <SectionHeader text={"Restaurants"} button={true} buttonLink="/about" buttonText="Show All" buttonType="gray" />
-            {dataIsLoaded ?
+            {isLoading ?
+                <LoadingSpan />
+                :
                 <div className={RestaurantsCSS.list}>
                     {renderList()}
                 </div>
-                :
-                <LoadingSpan />
             }
         </section>
     );

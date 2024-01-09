@@ -1,16 +1,17 @@
-import useFetch from 'hooks/useFetch';
+import { useContext } from 'react';
+import { GlobalContext } from 'context/GlobalContext';
+import { MenuContext } from 'context/MenuContext';
+import { useNavigate } from 'react-router-dom';
 import CartFormCSS from './CartForm.module.css';
 import deliveryIcon from 'assets/svg/time-eat-icon.svg';
 import payWithCard from 'assets/images/pay-with-card-icons.png';
 import { useFormik } from 'formik';
 import { cartFormSchema } from 'schema/FormSchema';
-import { useContext } from 'react';
-import { MenuDataContext } from 'context/MenuDataContext';
-import { useNavigate } from 'react-router-dom';
 
 const CartForm = () => {
-    const { totalPrice, emptyCart } = useContext(MenuDataContext);
-    const { readyData, dataIsLoaded } = useFetch("restaurants");
+    const { totalPrice, emptyCart } = useContext(MenuContext);
+    const { restaurants, isLoading } = useContext(GlobalContext);
+
     const navigate = useNavigate();
 
     const { values, errors, touched, isValid, handleChange, handleBlur, handleSubmit } = useFormik({
@@ -33,10 +34,10 @@ const CartForm = () => {
     });
 
     function renderRestaurantsList() {
-        if (dataIsLoaded) {
-            const selectElement = readyData.map(el => <option key={el.id} value={el.name}>{el.name}</option>);
-            return selectElement;
-        };
+        if (isLoading) return;
+
+        const selectElement = restaurants.map(el => <option key={el.id} value={el.name}>{el.name}</option>);
+        return selectElement;
     };
 
     return (

@@ -1,6 +1,3 @@
-import React, { useContext, useEffect } from 'react';
-import { MenuDataContext } from 'context/MenuDataContext';
-import { ALERT_TYPE } from 'constants/alert';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CustomToast from './CustomToast';
@@ -17,26 +14,16 @@ const options = {
     theme: "dark",
 }
 
+export function notify(type) {
+    toast(CustomToast(type), {...options});
+};
+
 const AlertBox = () => {
-    const { newItemToCart, dataError } = useContext(MenuDataContext);
-    useEffect(() => {
-        if (dataError) {
-            notify(ALERT_TYPE.ERROR);
-        };
-
-        if (newItemToCart !== 0) {
-            notify(ALERT_TYPE.SUCCESS);
-        };
-    }, [newItemToCart, dataError])
-
-    function notify(type) {
-        toast(CustomToast(type), {...options});
-    };
-
-    return <ToastContainer 
-                toastClassName={CustomToastCSS.CustomToast__Body} 
-                newestOnTop 
-            />;
+    return (
+        <ToastContainer 
+            toastClassName={CustomToastCSS.CustomToast__Body} 
+            newestOnTop />
+    );
 };
 
 export default AlertBox;
