@@ -3,6 +3,7 @@ import appleStoreIcon from "assets/images/apple-store-icon.png";
 import googleStoreIcon from "assets/images/google-store-icon.png";
 import { Link } from 'react-router-dom';
 import FooterTopCSS from './FooterTop.module.css';
+import routes from 'routes';
 
 const FooterTop = () => {
     return (
@@ -19,19 +20,19 @@ const FooterTop = () => {
             <div>
                 <h2>Navigation</h2>
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/menu">Menu</Link></li>
-                    <li><Link to="/cart">Cart</Link></li>
+                    <li><Link to={routes.home}>Home</Link></li>
+                    <li><Link to={routes.about}>About</Link></li>
+                    <li><Link to={routes.menu}>Menu</Link></li>
+                    <li><Link to={routes.cart}>Cart</Link></li>
                 </ul>
             </div>
             <div>
                 <h2>Get Help</h2>
                 <ul>
-                    <li><Link to='/help/FAQs'>Read FAQs</Link></li>
-                    <li><Link to='/help/privacy-policy'>Privacy Policy</Link></li>
-                    <li><Link to='/help/terms'>Terms</Link></li>
-                    <li><Link to='/contact'>Contact Us</Link></li>
+                    <li><Link to={routes.faq}>Read FAQs</Link></li>
+                    <li><Link to={routes.privacyPolicy}>Privacy Policy</Link></li>
+                    <li><Link to={routes.terms}>Terms</Link></li>
+                    <li><Link to={routes.contact}>Contact Us</Link></li>
                 </ul>
             </div>
             <div>

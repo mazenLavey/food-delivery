@@ -2,9 +2,21 @@ import HeroCSS from './Hero.module.css';
 import timeEatIcon from "assets/svg/time-eat-icon.svg";
 import deliveryIcon from "assets/svg/delivery-icon.svg";
 import parisIcon from "assets/svg/paris-icon.svg";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { MenuContext } from 'context/MenuContext';
+import { ORDER_TYPE } from 'constants/order';
+import routes from 'routes';
+import { useContext } from 'react';
 
 const Hero = () => {
+    const { setOrderType } = useContext(MenuContext);
+    const navigate = useNavigate();
+
+    const handleClick = (orderType) => {
+        setOrderType(orderType)
+        navigate(routes.menu)
+    }
+
     return (
         <>
             <div className={HeroCSS.background}></div>
@@ -13,18 +25,14 @@ const Hero = () => {
                     <div className={HeroCSS.text}>
                         <h1>Your Food Court <br />At Home</h1>
                         <div className={HeroCSS.btn}>
-                            <Link to='/menu'>
-                                <button>
-                                    <p>Delivery</p>
-                                    <p>Order Now</p>
-                                </button>
-                            </Link>
-                            <Link to='/menu'>
-                                <button>
-                                    <p>Takeout</p>
-                                    <p>Grab and go</p>
-                                </button>
-                            </Link>
+                            <button onClick={() => handleClick(ORDER_TYPE.DELIVERY)}>
+                                <p>Delivery</p>
+                                <p>Order Now</p>
+                            </button>
+                            <button onClick={() => handleClick(ORDER_TYPE.TAKEOUT)}>
+                                <p>Takeout</p>
+                                <p>Grab and go</p>
+                            </button>
                         </div>
                     </div>
 

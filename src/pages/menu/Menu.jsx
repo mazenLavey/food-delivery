@@ -4,9 +4,12 @@ import MenuCSS from './Menu.module.css';
 import MenuFilter from './components/MenuFilter/MenuFilter';
 import MenuItems from './components/MenuItems/MenuItems';
 import MenuSkeleton from './components/MenuSkeleton/MenuSkeleton';
+import { useSearchParams } from 'react-router-dom';
 
 const Menu = () => {
-    const { menuItems, filterMenu, isLoading } = useContext(MenuContext);
+    const { menuItems, dishesCategories, isLoading } = useContext(MenuContext);
+    const [searchParams] = useSearchParams();
+    const searchCategory = searchParams.get('category')?? '';
 
     return (
         <main className={`${MenuCSS.section} container`}>
@@ -14,8 +17,8 @@ const Menu = () => {
                 <MenuSkeleton />
                 :
                 <>
-                    <MenuFilter />
-                    <MenuItems menuItems={menuItems} filterMenu={filterMenu}/>
+                    <MenuFilter menuFilter={searchCategory} dishesCategories={dishesCategories} />
+                    <MenuItems menuItems={menuItems} menuFilter={searchCategory}/>
                 </>
             }
         </main>

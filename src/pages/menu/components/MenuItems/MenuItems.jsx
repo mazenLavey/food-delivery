@@ -1,11 +1,11 @@
 import ProductCard from 'components/productCard/ProductCard';
 import MenuItemsCSS from './MenuItems.module.css';
 
-const MenuItems = ({menuItems, filterMenu}) => {
+const MenuItems = ({menuItems, menuFilter}) => {
 
     function renderMenuItems() {
-        if (filterMenu && filterMenu !== 'all') {
-            const menuElements = menuItems?.filter(el => el.category === filterMenu).map(el => <ProductCard key={el.id} data={el} />);
+        if (menuFilter && menuFilter !== 'all') {
+            const menuElements = menuItems?.filter(el => el.category === menuFilter).map(el => <ProductCard key={el.id} data={el} />);
 
             return menuElements;
         };

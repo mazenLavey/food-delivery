@@ -3,6 +3,7 @@ import CartHeader from "./components/CartHeader/CartHeader";
 import CartCSS from "./Cart.module.css";
 import { useContext } from "react";
 import { MenuContext } from "context/MenuContext";
+import routes from "routes";
 
 const Cart = () => {
     const { menuItems } = useContext(MenuContext);
@@ -13,9 +14,9 @@ const Cart = () => {
             <CartHeader cartIsEmpty={cartIsEmpty} />
             <div className={CartCSS.wrapper}>
                 <div className={CartCSS.progress}>
-                    <NavLink to="/cart">order previwe</NavLink>
-                    <NavLink to="/cart/order-confirmation">information</NavLink>
-                    <NavLink to="/cart/order-confirmation/checkout">payment</NavLink>
+                    <NavLink to={routes.cart}>order previwe</NavLink>
+                    <NavLink to={routes.orderConfirmation}>information</NavLink>
+                    <NavLink to={routes.checkout}>payment</NavLink>
                 </div>
                 <Outlet />
             </div>

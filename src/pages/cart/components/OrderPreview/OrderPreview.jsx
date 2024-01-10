@@ -4,6 +4,7 @@ import OrderPreviewCSS from './OrderPreview.module.css';
 import { useContext } from "react";
 import { MenuContext } from "context/MenuContext";
 import EmptyCart from "./EmptyCart";
+import routes from "routes";
 
 const OrderPreview = () => {
     const { menuItems, totalPrice } = useContext(MenuContext);
@@ -25,7 +26,7 @@ const OrderPreview = () => {
                         </div>
                         <aside className={OrderPreviewCSS.orderBox}>
                             <p>Total: <strong>{totalPrice}</strong></p>
-                            <PrimaryBtn link={"/cart/order-confirmation"} text={"Submit Order"} />
+                            <PrimaryBtn link={routes.orderConfirmation} text={"Submit Order"} />
                         </aside>
                     </div>
             }

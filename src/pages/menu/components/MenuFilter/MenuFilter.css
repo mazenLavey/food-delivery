@@ -1,10 +1,10 @@
-.categories {
+.MenuFilter__categories {
     margin-bottom: 20px;
     overflow: hidden;
     position: relative;
 }
 
-.categories::after {
+.MenuFilter__categories::after {
     content: '';
     position: absolute;
     right: 0;
@@ -15,7 +15,7 @@
     z-index: 1;
 }
 
-.slider span {
+.MenuFilter__categories .swiper-slide > span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,6 +31,6 @@
     user-select: none;
 }
 
-.slider span:hover {
+.MenuFilter__categories .swiper-slide  > span:hover {
     background-color: var(--yellow-main);
 }

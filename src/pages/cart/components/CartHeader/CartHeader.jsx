@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import CartHeaderCSS from './CartHeader.module.css';
 import cartIcon from "assets/svg/cart-icon.svg";
+import routes from 'routes';
 
 const CartHeader = ({ cartIsEmpty }) => {
     return (
@@ -10,13 +11,12 @@ const CartHeader = ({ cartIsEmpty }) => {
                 <h1>Cart</h1>
             </div>
             {
-                cartIsEmpty ?
-                    null
-                    :
-                    <Link to='/menu'>
+                !cartIsEmpty && 
+                (
+                    <Link to={routes.menu}>
                         <button className="btnPrimary">add more items</button>
                     </Link>
-            }
+                )}
         </div>
     )
 }

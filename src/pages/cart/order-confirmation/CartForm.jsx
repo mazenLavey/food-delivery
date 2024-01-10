@@ -7,16 +7,17 @@ import deliveryIcon from 'assets/svg/time-eat-icon.svg';
 import payWithCard from 'assets/images/pay-with-card-icons.png';
 import { useFormik } from 'formik';
 import { cartFormSchema } from 'schema/FormSchema';
+import { ORDER_TYPE } from 'constants/order';
 
 const CartForm = () => {
-    const { totalPrice, emptyCart } = useContext(MenuContext);
+    const { totalPrice, emptyCart, orderType } = useContext(MenuContext);
     const { restaurants, isLoading } = useContext(GlobalContext);
 
     const navigate = useNavigate();
 
     const { values, errors, touched, isValid, handleChange, handleBlur, handleSubmit } = useFormik({
         initialValues: {
-            deliveryMethod: 'delivery',
+            deliveryMethod: orderType,
             clientName: '',
             phoneNumber: '',
             personNum: '',
@@ -46,11 +47,11 @@ const CartForm = () => {
                 <div className={CartFormCSS.order__type}>
                     <h3>How do you want to recive your order?<sup style={{ color: 'red' }}>*</sup></h3>
                     <div className={CartFormCSS.form__radio}>
-                        <input type="radio" name='deliveryMethod' id='delivery' value='delivery' checked={values.deliveryMethod === 'delivery'} onChange={handleChange} />
+                        <input type="radio" name='deliveryMethod' id='delivery' value='delivery' checked={values.deliveryMethod === ORDER_TYPE.DELIVERY} onChange={handleChange} />
                         <label htmlFor="delivery">Delivery to my place</label><br />
                     </div>
                     <div className={CartFormCSS.form__radio}>
-                        <input type="radio" name='deliveryMethod' id='takeaway' value='takeaway' checked={values.deliveryMethod === 'takeaway'} onChange={handleChange} />
+                        <input type="radio" name='deliveryMethod' id='takeaway' value='takeaway' checked={values.deliveryMethod === ORDER_TYPE.TAKEOUT} onChange={handleChange} />
                         <label htmlFor="takeaway">Grab from nearest restaurant</label>
                     </div>
                     {errors.deliveryMethod && touched.deliveryMethod && <p className={CartFormCSS.error_message}>{errors.deliveryMethod}</p>}
