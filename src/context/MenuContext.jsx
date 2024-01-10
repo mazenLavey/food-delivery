@@ -2,6 +2,7 @@ import React, { useState, createContext, useEffect, useContext } from 'react';
 import sumTotal from 'utils/sumTotal';
 import priceFormatter from 'utils/priceFormatter';
 import { GlobalContext } from './GlobalContext';
+import { ORDER_TYPE } from 'constants/order';
 
 const MenuContext = createContext();
 
@@ -10,10 +11,9 @@ const MenuProvider = (props) => {
 
     const [menuItems, setMenuItems] = useState([]);
     const [dishesCategories, setDishesCategories] = useState([]);
-    const [filterMenu, setFilterMenu] = useState('');
-
     const [numItemsInCart, setNumItemsInCart] = useState(0);
     const [totalPrice, setTotalPrice] = useState("");
+    const [orderType, setOrderType] = useState(ORDER_TYPE.DELIVERY);
 
     useEffect(() => {
         function findCategory(menu) {
@@ -72,24 +72,17 @@ const MenuProvider = (props) => {
         setNumItemsInCart(0);
     };
 
-    function changeMenuFilter(itemCategory) {
-        if (!menuItems) return;
-
-        setFilterMenu(itemCategory);
-    };
-
-
     return (
         <MenuContext.Provider value={{ 
             menuItems,
             dishesCategories,
             numItemsInCart, 
-            filterMenu,
             totalPrice, 
             addToCart, 
             removeFromCart, 
-            emptyCart, 
-            changeMenuFilter, 
+            emptyCart,
+            setOrderType,
+            orderType
         }}>
             {props.children}
         </MenuContext.Provider>

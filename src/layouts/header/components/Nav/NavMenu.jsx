@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NavMenuCSS from './NavMenu.module.css';
 import { Link } from 'react-router-dom';
+import routes from "routes";
 
 const NavMenu = () => {
     const [navMenuIsActive, setNavMenuIsActive] = useState(false);
@@ -20,11 +21,11 @@ const NavMenu = () => {
                 {navMenuIsActive ?
                     <>
                         <ul className={NavMenuCSS.dropDown}>
-                            <li><Link to="/" onClick={NavMenuToggle}>Home</Link></li>
-                            <li><Link to="/about" onClick={NavMenuToggle}>About</Link></li>
-                            <li><Link to="/menu" onClick={NavMenuToggle}>Menu</Link></li>
-                            <li><Link to="/contact" onClick={NavMenuToggle}>Contact</Link></li>
-                            <li><Link to="/help" onClick={NavMenuToggle}>Help</Link></li>
+                            <li><Link to={routes.home} onClick={NavMenuToggle}>Home</Link></li>
+                            <li><Link to={routes.about} onClick={NavMenuToggle}>About</Link></li>
+                            <li><Link to={routes.menu} onClick={NavMenuToggle}>Menu</Link></li>
+                            <li><Link to={routes.contact} onClick={NavMenuToggle}>Contact</Link></li>
+                            <li><Link to={routes.help} onClick={NavMenuToggle}>Help</Link></li>
                         </ul>
                         <div className={NavMenuCSS.layout} onClick={NavMenuToggle}></div>
                     </>

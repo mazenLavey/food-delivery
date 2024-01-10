@@ -4,6 +4,7 @@ import RestaurantsCSS from "./Restaurants.module.css";
 import RestaurantCard from './RestaurantCard';
 import LoadingSpan from 'components/loadingSpan/LoadingSpan';
 import SectionHeader from "components/sectionHeader/SectionHeader";
+import routes from 'routes';
 
 const Restaurants = () => {
     const { restaurants, isLoading } = useContext(GlobalContext);
@@ -21,7 +22,7 @@ const Restaurants = () => {
 
     return (
         <section className={`${RestaurantsCSS.section} container`} id="restaurants">
-            <SectionHeader text={"Restaurants"} button={true} buttonLink="/about" buttonText="Show All" buttonType="gray" />
+            <SectionHeader text={"Restaurants"} button={true} buttonLink={routes.about} buttonText="Show All" buttonType="gray" />
             {isLoading ?
                 <LoadingSpan />
                 :

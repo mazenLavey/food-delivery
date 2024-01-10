@@ -6,6 +6,7 @@ import SectionHeader from 'components/sectionHeader/SectionHeader';
 import useMedia from 'hooks/useMedia';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import routes from 'routes';
 
 const Specialities = () => {
     const { specialities } = useContext(GlobalContext)
@@ -21,7 +22,7 @@ const Specialities = () => {
 
     return (
         <section className={`${SpecialitiesCSS.section} container`} id="specialities">
-            <SectionHeader text={"Specialities"} button={true} buttonLink="/menu" buttonText="Show All" buttonType="gray" />
+            <SectionHeader text={"Specialities"} button={true} buttonLink={routes.menu} buttonText="Show All" buttonType="gray" />
             {
                 isMobile ?
                     <div className={SpecialitiesCSS.list__mobile}>

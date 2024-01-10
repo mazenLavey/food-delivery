@@ -18,6 +18,7 @@ import CartLayout from 'pages/cart/Cart';
 import ToUpBtn from 'components/toUpBtn/ToUpBtn';
 import AlertBox from 'components/alertBox/AlertBox';
 import BreadCrumbs from 'components/breadCrumbs/BreadCrumbs';
+import routes from 'routes';
 
 const App = () => {
 
@@ -27,20 +28,20 @@ const App = () => {
             <Header />
             <BreadCrumbs />
             <Routes>
-                <Route path='*' element={<Navigate to='/' />} />
-                <Route excat path='/' element={<Home />} />
-                <Route excat path='/cart' element={<CartLayout />}>
-                    <Route path='/cart' element={<OrderPreview />} />
-                    <Route path='/cart/order-confirmation' element={<OrderConfirmation />} />
-                    <Route path='/cart/order-confirmation/checkout' element={<Checkout />} />
+                <Route path='*' element={<Navigate to={routes.home} />} />
+                <Route excat path={routes.home} element={<Home />} />
+                <Route excat path={routes.cart} element={<CartLayout />}>
+                    <Route path={routes.cart} element={<OrderPreview />} />
+                    <Route path={routes.orderConfirmation} element={<OrderConfirmation />} />
+                    <Route path={routes.checkout} element={<Checkout />} />
                 </Route>
-                <Route excat path='/about' element={<About />} />
-                <Route excat path='/menu' element={<Menu />} />
-                <Route excat path='/contact' element={<Contact />} />
-                <Route excat path='/help' element={<Help />} />
-                <Route excat path='/help/FAQs' element={<FAQs />} />
-                <Route excat path='/help/privacy-policy' element={<PrivacyPolicy />} />
-                <Route excat path='/help/terms' element={<Terms />} />
+                <Route excat path={routes.about} element={<About />} />
+                <Route excat path={routes.menu} element={<Menu />} />
+                <Route excat path={routes.contact} element={<Contact />} />
+                <Route excat path={routes.help} element={<Help />} />
+                <Route excat path={routes.faq} element={<FAQs />} />
+                <Route excat path={routes.privacyPolicy} element={<PrivacyPolicy />} />
+                <Route excat path={routes.terms} element={<Terms />} />
             </Routes>
             <ToUpBtn />
             <Footer />

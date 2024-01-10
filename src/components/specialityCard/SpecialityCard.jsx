@@ -1,20 +1,19 @@
-import React, { useContext } from 'react';
 import SpecialityCardCSS from './SpecialityCard.module.css';
-import { Link } from 'react-router-dom';
-import { GlobalContext } from 'context/GlobalContext';
+import { useNavigate } from 'react-router-dom';
+import routes from 'routes';
 
 const SpecialityCard = ({ img, title, category }) => {
-    const { useMenuFilter } = useContext(GlobalContext);
+    const navigate = useNavigate();
 
     function ChangeCategory() {
-        useMenuFilter(category);
+        navigate(`${routes.menu}?category=${category}`);
     };
 
     return (
-        <Link to="/menu" className={SpecialityCardCSS.card} onClick={ChangeCategory}>
+        <button className={SpecialityCardCSS.card} onClick={ChangeCategory}>
             <img src={img.src} alt={img.alt} />
             <p>{title}</p>
-        </Link>
+        </button>
     )
 };
 
